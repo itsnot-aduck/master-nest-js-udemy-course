@@ -1,7 +1,14 @@
+import { IsDateString, IsString, Length } from "class-validator";
+
 /* Data transfer object */
 export class CreateEventDto{
+    @IsString()
+    @Length(5,255, {message: 'The name length is wrong'})
     name: string;
+    @Length(5,255)
     description: string;
+    @IsDateString()
     when: string;
-    address: string
+    @Length(5,255)
+    address: string;
 }
